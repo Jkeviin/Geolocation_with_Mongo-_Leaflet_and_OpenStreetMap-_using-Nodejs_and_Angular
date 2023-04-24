@@ -13,24 +13,14 @@ Para mostrar los lavaderos en un mapa utilizando OpenStreetMap y Leaflet en Angu
   ...
 ]
 ```
+<hr>
 
-3. En tu componente, importa Leaflet: `import * as L from 'leaflet';`
+Mapbox, Leaflet y OpenStreetMap son tres proyectos diferentes que están relacionados con la creación y visualización de mapas en la web.
 
-4. Crea un mapa utilizando Leaflet y agrega una capa de OpenStreetMap:
-```typescript
-const map = L.map('map').setView([latitudInicial, longitudInicial], zoomInicial);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
-}).addTo(map);
-```
+- **OpenStreetMap** es un proyecto colaborativo para crear mapas libres y editables del mundo. Los datos de OpenStreetMap son generados por una comunidad de voluntarios que recopilan información geográfica utilizando herramientas como GPS, fotografías aéreas y otras fuentes libres. Los datos de OpenStreetMap están disponibles gratuitamente y pueden ser utilizados por cualquier persona para crear mapas y aplicaciones.
 
-5. Agrega marcadores al mapa para cada lavadero utilizando las coordenadas de su ubicación:
-```typescript
-this.lavaderos.forEach(lavadero => {
-    const [longitud, latitud] = lavadero.ubicacion.coordinates;
-    L.marker([latitud, longitud]).addTo(map)
-        .bindPopup(`<b>${lavadero.nombre}</b><br>${lavadero.direccion}`);
-});
-```
+- **Leaflet** es una biblioteca de JavaScript de código abierto para crear mapas interactivos en la web. Leaflet proporciona una serie de herramientas y funcionalidades para crear mapas personalizados y agregar capas de información como marcadores, polígonos y líneas. Leaflet es compatible con diferentes proveedores de teselas, incluyendo OpenStreetMap, lo que permite a los desarrolladores utilizar los datos de OpenStreetMap para crear mapas personalizados.
 
-Espero que esto te ayude a mostrar los lavaderos en un mapa utilizando OpenStreetMap y Leaflet en Angular.
+- **Mapbox** es una plataforma comercial para crear y personalizar mapas en la web y en aplicaciones móviles. Mapbox proporciona herramientas para diseñar mapas personalizados y agregar capas de información como marcadores, rutas y áreas. Mapbox utiliza datos de OpenStreetMap y otras fuentes para generar sus mapas y ofrece diferentes estilos de mapa predefinidos que los desarrolladores pueden utilizar en sus aplicaciones.
+
+En resumen, OpenStreetMap es una fuente de datos geográficos libres, Leaflet es una biblioteca de JavaScript para crear mapas interactivos utilizando diferentes fuentes de datos (incluyendo OpenStreetMap), y Mapbox es una plataforma comercial que utiliza datos de OpenStreetMap y otras fuentes para ofrecer herramientas para crear mapas personalizados.
